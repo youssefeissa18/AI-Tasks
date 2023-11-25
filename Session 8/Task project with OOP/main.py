@@ -1,16 +1,43 @@
-# This is a sample Python script.
+class person:
+    counter = 0
+    def __init__(self, name, nationalID):
+        self.name = name
+        self.nationalID = nationalID
+        self.counter += 1
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    def printinfoperson(self):
+        return f"{self.counter}-Name: {self.name}\tnationalID: {self.nationalID}"
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class Student(person):
+    counter = 0
+    def __init__(self, name, nationalID, Gpa, ID):
+        super().__init__(name,nationalID)
+        self.Gpa = Gpa
+        self.ID = ID
+        self.counter += 1
+    def printinfoperson(self):
+        return f"{str(self.counter)}-Name: {self.name}\tnationalID: {self.nationalID}\tGPA: {str(self.Gpa)}\tID: {str(self.ID)}"
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+class Teacher(person):
+    counter = 0
+    def __init__(self, name, nationalID, salary, ID):
+        super().__init__(name,nationalID)
+        self.salary = salary
+        self.ID = ID
+        self.counter += 1
+    def printinfoperson(self):
+        return f"{str(self.counter)}-Name: {self.name}\tnationalID: {self.nationalID}\tGPA: {str(self.salary)}\tID: {str(self.ID)}"
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+name = input("Enter your name: ")
+nationalID = input("Enter your NationalID : ")
+gpa = float(input("Enter Your Gpa: "))
+id1 = int(input("Enter Your ID: "))
+p1 = person(name, nationalID)
+print(p1.printinfoperson())
+S1 = Student(name, nationalID, gpa, id1)
+print(S1.printinfoperson())
+salary = float(input("enter your salary: "))
+S1 = Teacher(name, nationalID, salary, id1)
+print(S1.printinfoperson())
