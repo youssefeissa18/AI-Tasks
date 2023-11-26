@@ -30,14 +30,43 @@ class Teacher(person):
     def printinfoperson(self):
         return f"{str(self.counter)}-Name: {self.name}\tnationalID: {self.nationalID}\tGPA: {str(self.salary)}\tID: {str(self.ID)}"
 
-name = input("Enter your name: ")
-nationalID = input("Enter your NationalID : ")
-gpa = float(input("Enter Your Gpa: "))
-id1 = int(input("Enter Your ID: "))
-p1 = person(name, nationalID)
-print(p1.printinfoperson())
-S1 = Student(name, nationalID, gpa, id1)
-print(S1.printinfoperson())
-salary = float(input("enter your salary: "))
-S1 = Teacher(name, nationalID, salary, id1)
-print(S1.printinfoperson())
+
+class UNI:
+
+    def __init__(self):
+        self.name = input("Enter the name: ")
+        self.students = []
+        self.teachers = []
+
+    def addstudent(self, student):
+        self.students.append(student)
+        print(f"Student {self.name} add Successfully ")
+
+    def addteacher(self, teacher):
+        self.teachers.append(teacher)
+        print(f"Teacher {self.name} add Successfully ")
+
+    def removestudent(self, student):
+        self.students.remove(student)
+        print(f"Student {self.name} remove Successfully ")
+
+    def removeteacher(self, teacher):
+        self.teachers.remove(teacher)
+        print(f"Teacher {self.name} remove Successfully ")
+
+    def display_students(self):
+        print(f"Students at {self.name}:")
+        for student in self.students:
+            print(student)
+
+    def display_teachers(self):
+        print(f"Teachers at {self.name}:")
+        for teacher in self.teachers:
+            print(teacher)
+
+    def display_university_info(self):
+        print(f"University: {self.name}")
+        print("===========")
+        self.display_students()
+        self.display_teachers()
+
